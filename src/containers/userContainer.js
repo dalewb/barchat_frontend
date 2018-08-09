@@ -24,7 +24,7 @@ class UserContainer extends Component {
     return this.state.users.map(user => {
       console.log("Inside renderUsers, user is", user)
       return (
-        <User info={user} />
+        <User key={user.id} info={user} />
       )
     })
   }
