@@ -7,11 +7,12 @@ class UserContainer extends Component {
     users: [],
   }
 
-  compnentDidMount(
+  componentDidMount() {
     this.getAllUsers()
-  )
+  }
 
   getAllUsers = () => {
+    console.log("Inside fetch")
     fetch('http://localhost:3000/api/v1/users')
     .then(res => res.json())
     .then(json => this.setState({
@@ -21,6 +22,7 @@ class UserContainer extends Component {
 
   renderUsers = () => {
     return this.state.users.map(user => {
+      console.log("Inside renderUsers, user is", user)
       return (
         <User info={user} />
       )
@@ -29,7 +31,7 @@ class UserContainer extends Component {
 
   render() {
     return (
-
+      this.renderUsers()
     )
   }
 
